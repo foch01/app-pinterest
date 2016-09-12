@@ -2,7 +2,9 @@ app-pinterest
 
 ## BPML Patrice & Redfish
 
-* BPML = Organisation de toutes les fonctionnalités et permissions de chaques types d'utilisateurs (utilisateur non-connecté, utilisateur connecté, utilisateur organisateur d'évènement et SuperAdmin).
+* BPML = Organisation de toutes les fonctionnalités et permissions de chaques types d'utilisateurs (visiteurs, utilisateurs connectés, utilisateur organisateur d'évènements et SuperAdmin).
+
+* Mise en place sur papier puis sur draw.io
 
 ## UML Stéphane, Ghaffar & Lise
 
