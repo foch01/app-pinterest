@@ -1,0 +1,27 @@
+============ Ajout d'un "Admin" ============
+
+Scenario : "Sup_user" accède à ajout "Admin"
+	Étant donné que je suis connecté en tant que "Sup_user"
+	Quand je click sur ajouter un "Admin"
+	Alors je dois voir une fenêtre "ajouter un admin"
+
+____________ Quand on est sur la fenêtre "ajouter un admin" ____________
+
+Scenario :  "Sup_user" ajoute "Admin"
+	Étant donné que je suis connecté en tant que "Sup_user"
+	Quand je rentre les informations dans la fenêtre "ajouter un admin"
+	AND je confirme un "ajouter un admin"
+ 	Alors je dois avoir un retour à la page accueil
+ 	AND le message "Votre ajout a bien été pris en compte" est affiché
+
+Scenario :  "Sup_user" quitte la fenêtre "ajouter un admin"
+	Étant donné que je suis connecté en tant que "Sup_user"
+	Quand je quitte la fenêtre "ajouter un admin"
+ 	Alors je dois voir une fenêtre de confirmation
+
+Scenario : "Sup_user" ajoute un "Admin" non valide
+	Étant donné que je suis connecté en tant que "Sup_user"
+	Quand je rentre les informations dans la fenêtre "ajouter un admin"
+	AND Le pseudo est déjà dans la base donnée
+	AND l'email est invalide
+	Alors je dois voir le message "Vos informations ne sont pas disponibles"
