@@ -34,13 +34,13 @@ Scenario :	"Admin" supprime un bloc inexistant
 	AND le bloc est inexistant
 	Alors le message "Ce bloc n'existe plus" est affiché
 
-Scenario :	"Admin" supprime un bloc inexistant
+Scenario :	"Admin" modifie un bloc inexistant
 	Étant donné que je suis connecté en tant que "Admin"
 	Quand je tente de modifié un bloc
 	AND le bloc est inexistant
 	Alors le message "Ce bloc n'existe plus, voulez vous le recréer" est affiché
 
-Scenario :	"Admin" modifie un bloc inexistant
+Scenario :	"Admin" modifie un bloc existant
 	Étant donné que je suis connecté en tant que "Admin"
 	Quand je tente de modifier un bloc
 	AND je rentre les nouvelles informations dans la fenêtre de bloc
