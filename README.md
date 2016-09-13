@@ -10,3 +10,10 @@ app-pinterest
 
 * UML = Modélisation du BPML pour la base de donnée.
 
+
+## Transformation BPML -> Ecrit
+
+* Lise : SuperUser
+* Ghaffar & Stéphane : Visiteur
+* Patrice & Redfish : Admin
+
