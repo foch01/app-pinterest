@@ -3,6 +3,10 @@
 Fonctionnalité: Accéder à la fenêtre d'ajout d'un bloc pour l'admin.
                 Rajouter un bloc par l'admin.
                 "Admin" quitte la fenêtre "ajouter un bloc".
+                Admin qui supprime un bloc existant.
+                Admin qui supprime un  bloc inexistant.
+                Admin modifie un bloc existant.
+                Admin modifie un bloc inexistant.
        
         Scénario: "Admin" a le droit de rajouter un nouveau bloc
             Étant donné que je suis connecté en tant que "Admin"
@@ -32,6 +36,12 @@ Fonctionnalité: Accéder à la fenêtre d'ajout d'un bloc pour l'admin.
             Quand je supprime un bloc
             Et le "bloc" est inexistant
             Alors le message "Ce bloc n'existe plus" s'affiche
+            
+        Scénario: "Admin" modifie un bloc existant
+            Étant donné que je suis connecté en tant que "Admin"
+            Quand je modifie un bloc
+            Alors je dois voir un retour à la page accueil
+            Et le message "Votre modification à bien été pris en compte" s'affiche
 
         Scénario: "Admin" modifie un bloc inexistant
             Étant donné que je suis connecté en tant que "Admin"
