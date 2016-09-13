@@ -15,5 +15,5 @@ app-pinterest
 
 * Lise : SuperUser
 * Ghaffar & Stéphane : Visiteur
-* Patrice & Redfish : Admin
+* Patrice & Redfish : Admin + Installation Gherkin
 
