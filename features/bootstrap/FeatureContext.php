@@ -18,11 +18,28 @@ class FeatureContext implements Context, SnippetAcceptingContext
      * You can also pass arbitrary arguments to the
      * context constructor through behat.yml.
      */
+
     public function __construct()
     {
         //
     }
     
+    /**
+     * @When je rentre les informations dans la fenêtre :arg1
+     */
+    public function jeRentreLesInformationsDansLaFenetre($arg1)
+    {
+        throw new PendingException();
+    }
+
+    /**
+     * @When je confirme un :arg1
+     */
+    public function jeConfirmeUn($arg1)
+    {
+        throw new PendingException();
+    }
+
     /**
      * @Then je dois avoir un retour à la page accueil
      */
@@ -32,21 +49,45 @@ class FeatureContext implements Context, SnippetAcceptingContext
     }
 
     /**
-     * @When je rentre les informations dans la fenêtre :arg1
+     * @Then le message :arg1 est affiché
      */
-    public function jeRentreLesInformationsDansLaFenetre($arg1)
+    public function leMessageEstAffiche($arg1)
     {
         throw new PendingException();
     }
-    
+
     /**
-     * @When je confirme un :arg1
+     * @When Le pseudo est déjà dans la base donnée
      */
-    public function jeConfirmeUn($arg1)
+    public function lePseudoEstDejaDansLaBaseDonnee()
     {
         throw new PendingException();
     }
-    
+
+    /**
+     * @When l'email est invalide
+     */
+    public function lEmailEstInvalide()
+    {
+        throw new PendingException();
+    }
+
+    /**
+     * @Then je dois voir le message :arg1
+     */
+    public function jeDoisVoirLeMessage($arg1)
+    {
+        throw new PendingException();
+    }
+
+    /**
+     * @When je modifie un :arg1
+     */
+    public function jeModifieUn($arg1)
+    {
+        throw new PendingException();
+    }
+
     /**
      * @Given je suis connecté en tant que :arg1
      */
