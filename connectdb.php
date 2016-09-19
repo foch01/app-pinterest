@@ -1,6 +1,5 @@
  <?php
-	$serveur = "mysql.monserveursql.com";
-	$base = "mabase";
-	$user = "monuser";
-	$pass = "monpass";
+	$base = "mixterest";
+	$user = "testuser";
+	$pass = "nnnn";
 ?> 

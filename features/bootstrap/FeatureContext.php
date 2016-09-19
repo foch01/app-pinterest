@@ -1,4 +1,4 @@
-    <?php
+<?php
     use Behat\Behat\Context\Context;
     use Behat\Behat\Context\SnippetAcceptingContext;
     use Behat\Gherkin\Node\PyStringNode;
@@ -76,9 +76,10 @@
     */
     public function jeSuisConnecteEnTantQue($arg1)
     {
-    $user = new User(1, "Toto", "toto@toto.fr");
-    echo $user->getMail();
-    throw new PendingException();
+    $user = new User("testuser", "nnnn");
+    $user->connect();
+
+    //throw new PendingException();
     }
     /**
     * @When je click sur :arg1
@@ -506,6 +507,14 @@
     public function ilAppuieSurValider()
     {
     throw new PendingException();
-    }                                                         
+    }         
+
+        /**
+     * @Then je dois avoir un retour à la page accueil
+     */
+    public function jeDoisAvoirUnRetourALaPageAccueil()
+    {
+        throw new PendingException();
+    }                                                
     
 } 
