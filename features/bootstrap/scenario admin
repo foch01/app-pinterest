@@ -1,0 +1,62 @@
+SCENARIO ADMIN : 
+
+1.0 Etant donné que admin arrive sur site
+
+1.1 - admin connexion
+		- login 
+			- pseudo ou email
+			- password
+		- login error 
+			- nouvel essai
+			- renvoi mot de passe
+				- entrer email
+				- retour page accueil
+
+1.2 - admin connecté : actions possibles
+		- administration : 
+			- gerer sa page
+			- gerer user :
+				- creation user
+					- envoi invitation
+			- gestion parametres : 
+				- param utilisateur
+					- gestion taille bloc
+				- param compte :
+					- gestion password
+					- lang
+					- ...
+
+
+Fonctionnalité: Avoir un compte bancaire
+  Afin d'offrir aux utilisateurs la possibilité d'avoir un compte bancaire
+  Etant donné que je suis inscrit
+  Je dois être capable d'ajouter ou de retirer de l'argent sur mon compte
+
+  Cette description permet de comprendre la fonctionnalité de manière générale. Ensuite il va fournir des cas d'utilisation qui vont décrire cette fonctionnalité. On parle alors de "Scénario". Chaque scénario est défini par :
+
+    - un contexte (étant donné que)
+    - des événements déclencheurs (quand)
+    - un résultat attendu (alors)
+
+Scénario:
+  Etant donné que je suis un utilisateur connecté
+  Et que j'ai un compte bancaire
+  Et que le solde de mon compte est de "10" euros
+  Quand j'ajoute "5" euros sur mon compte
+  Alors mon solde doit être de "15" euros
+
+Il va pouvoir combiner les scénarios :
+
+Scénario:
+  Etant donné que j'ai un compte bancaire
+  Et que le solde de mon compte est de "10" euros
+  Quand j'ajoute "5" euros sur mon compte
+  Alors mon solde doit être de "15" euros
+
+<p>Scénario:</p>
+  Etant donné que j'ai un compte bancaire
+  Et que le solde de mon compte est de "10" euros
+  Quand je retire "50" euros sur mon compte
+  Alors je dois avoir le message d'erreur "vous n'avez pas le droit d'être à découvert"
+  Et mon solde doit être de "10" euros
+
