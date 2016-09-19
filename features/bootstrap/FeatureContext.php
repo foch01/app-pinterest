@@ -41,14 +41,6 @@ class FeatureContext implements Context, SnippetAcceptingContext
     }
 
     /**
-     * @Then je dois avoir un retour à la page accueil
-     */
-    public function jeDoisAvoirUnRetourALaPageAccueil()
-    {
-        throw new PendingException();
-    }
-
-    /**
      * @Then le message :arg1 est affiché
      */
     public function leMessageEstAffiche($arg1)
