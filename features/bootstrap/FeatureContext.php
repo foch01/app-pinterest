@@ -24,6 +24,30 @@ class FeatureContext implements Context, SnippetAcceptingContext
     }
     
     /**
+     * @Then je dois avoir un retour à la page accueil
+     */
+    public function jeDoisAvoirUnRetourALaPageAccueil()
+    {
+        throw new PendingException();
+    }
+
+    /**
+     * @When je rentre les informations dans la fenêtre :arg1
+     */
+    public function jeRentreLesInformationsDansLaFenetre($arg1)
+    {
+        throw new PendingException();
+    }
+    
+    /**
+     * @When je confirme un :arg1
+     */
+    public function jeConfirmeUn($arg1)
+    {
+        throw new PendingException();
+    }
+    
+    /**
      * @Given je suis connecté en tant que :arg1
      */
     public function jeSuisConnecteEnTantQue($arg1)
@@ -144,10 +168,3 @@ class FeatureContext implements Context, SnippetAcceptingContext
     }
 
 }
-
-
-Scenario :	"Admin" créer un bloc valide
-	Étant donné que je suis connecté en tant que "Admin"
-	Quand je rentre les informations dans la fenêtre de bloc
-	Alors je dois voir un retour à la page accueil avec le nouveau bloc
-	Et le message "Votre ajout à bien été pris en compte" est affiché

@@ -24,7 +24,7 @@ Fonctionnalité: Accéder à la fenêtre d'ajout d'un bloc pour l'admin.
             Quand je quitte la fenêtre "ajouter un bloc"
             Alors je dois voir une fenêtre de confirmation
         
-        Scénario: "Admin" supprime un bloc existant
+        Scénario: "Admin" supprime un "bloc" existant
             Étant donné que je suis connecté en tant que "Admin"
             Quand je supprime un "bloc"
             Et le "bloc" est encore existant
