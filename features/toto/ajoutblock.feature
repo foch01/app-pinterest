@@ -1,13 +1,9 @@
-============ Ajout d'un bloc par "Admin" ============
-
+Feature: Gestion d'un administrateur lorsqu'il rajoute un bloc
 
 Scenario : "Admin" a le droit de rajouter un nouveau bloc
 	Étant donné que je suis connecté en tant que "Admin"
 	Quand je click sur ajouter un nouveau bloc
 	Alors je dois voir une fenêtre "ajouter un bloc"
-
-
-____________ Quand on est sur la fenêtre "ajouter un bloc" ____________
 
 
 Scenario :	"Admin" créer un bloc valide
