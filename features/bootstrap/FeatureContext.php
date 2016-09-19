@@ -76,7 +76,7 @@
     */
     public function jeSuisConnecteEnTantQue($arg1)
     {
-    $user = new User("testuser", "nnnn");
+    $user = new User("testuser", "yyyy");
     $user->connect();
 
     //throw new PendingException();
