@@ -5,7 +5,7 @@ use Behat\Behat\Context\SnippetAcceptingContext;
 use Behat\Gherkin\Node\PyStringNode;
 use Behat\Gherkin\Node\TableNode;
 use Behat\Behat\Tester\Exception\PendingException;
-
+use Entity\User;
 /**
  * Defines application features from the specific context.
  */
@@ -27,7 +27,9 @@ class FeatureContext implements Context, SnippetAcceptingContext
      * @Given je suis connecté en tant que :arg1
      */
     public function jeSuisConnecteEnTantQue($arg1)
-    {
+    { 
+        $user = new User(1, "Toto", "toto@toto.fr");
+        echo $user->getMail();
         throw new PendingException();
     }
 
