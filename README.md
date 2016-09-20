@@ -17,3 +17,5 @@ app-pinterest
 * Ghaffar & Stéphane : Visiteur
 * Patrice & Redfish : Admin + Installation Gherkin
 
+## Programmation des tests en PairProgramming 
+
