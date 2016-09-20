@@ -77,13 +77,12 @@
     public function jeSuisConnecteEnTantQue($arg1)
     {
     $user = new User("testuser", "nnnn");
-    $user->connect();
-
-    if (!$user->connect()){
+    $connected = $user->connect();
+    if ($connected){
         echo "OK";
     }
     else {
-        echo "Not OK";
+        throw new Exception("Impossible to connect");
     }
 
     //throw new PendingException();
