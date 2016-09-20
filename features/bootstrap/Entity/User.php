@@ -28,7 +28,7 @@ class User
       }
   }
 
-public function validatemail () {
+/*public function validatemail () {
 
   if (preg_match(^[a-zA-Z][\w\.-]*[a-zA-Z0-9]@[a-zA-Z0-9][\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]$)){
 echo 'email valide';
@@ -36,7 +36,7 @@ echo 'email valide';
 else {
   echo 'email invalide';
 }
-}
+}*/
 
 
 
