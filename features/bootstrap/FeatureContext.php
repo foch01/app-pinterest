@@ -55,7 +55,7 @@
     */
     public function lEmailEstInvalide()
     {
-    throw new PendingException();
+    $mail = $user->getMail();
     }
     /**
     * @Then je dois voir le message :arg1
