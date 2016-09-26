@@ -5,6 +5,7 @@
     use Behat\Gherkin\Node\TableNode;
     use Behat\Behat\Tester\Exception\PendingException;
     use Entity\User;
+    use Entity\SuperUser;
     /**
     * Defines application features from the specific context.
     */
@@ -23,15 +24,17 @@
     {
     //
     }
+        
     /**
     * @When je rentre les informations dans la fenêtre :arg1
     */
     public function jeRentreLesInformationsDansLaFenetre($arg1)
     {
 		if($arg1 == "ajouter un admin"){
-			$this->new_user = new User();
+			$this->new_user = new SuperUser();
 		} 
     }
+        
     /**
     * @When Le pseudo est déjà dans la base donnée
     */
@@ -39,6 +42,7 @@
     {
     	$this->new_user->setPseudo("testuser");
     }
+        
     /**
     * @When l'email est déjà dans la base donnée
     */
@@ -48,16 +52,17 @@
         if($user->searchByEmail()){
         	throw new Exception("Found a record but email is erroneous");
         } */
-        $this->new_user->setMail("reddeveloppement@wanalike.fr");
+        $this->new_user->setMail("facesimplon@facesimplon.com");
     }
+        
     /**
     * @Given je suis connecté en tant que :arg1
     */
     public function jeSuisConnecteEnTantQue($arg1)
     {
-	    $user = new User();
-	    $user->setPseudo("testuser");
-	    $user->setPwd("nnnn");
+	    $user = new SuperUser();
+	    $user->setPseudo("testSuperAdmin");
+	    $user->setPwd("facesimplon");
 	    $connected = $user->connect();
 	    if ($connected){
 	        echo "OK";
@@ -73,7 +78,7 @@
     */
     public function leVisiteurSeConnecte()
     {
-	 	$user = new User("testuser", "nnnn");
+	 	$user = new SuperUser("testSuperAdmin", "facesimplon");
 	    $connected = $user->connect();
 	    if ($connected){
 	        echo "OK";
@@ -88,7 +93,7 @@
     */
     public function ilChangeSonMotDePasse()
     {
-    	$user = new User("testuser", "nnnn", "erroneous@wanalike.fr");
+    	$user = new SuperUser("testuser", "nnnn", "erroneous@wanalike.fr");
         if($user->ChangePass()){
         	echo ("Our Password is not Changed");
         }       
@@ -102,6 +107,7 @@
     {
         $this->new_user->create();
     }
+        
     /**
      * @Then je dois voir le message :arg1
      */
@@ -111,34 +117,22 @@
         	throw new \Exception("Error, we did not recieve the correct error message");
         }
     }
-      /**
-     * @Given je tape l'url :arg1
-     */
-    /*public function jeTapeLUrl($arg1)
-    {
-        /*throw new PendingException();*/
-    /*}*/
+        
     /**
-     * @Given je ne suis pas connecté
+     * @When je click sur ajouter un :arg1
      */
-   /* public function jeNeSuisPasConnecte()
-    {
-    	if(!$this->$connected_user){
-    		echo 'Not Connected !!';
-	   	}
-        /*throw new PendingException();*/
-    }
-    /**
-     * @Then j'accède à la page Accueil
-     */
-   /* public function jAccedeALaPageAccueil()
+    public function jeClickSurAjouterUn($arg1)
     {
         throw new PendingException();
     }
+
     /**
-     * @Then je visualise les :arg1
+     * @Then je dois voir une fenêtre :arg1
      */
-    /*public function jeVisualiseLes($arg1)
+    public function jeDoisVoirUneFenetre($arg1)
     {
         throw new PendingException();
-    }*/ 
+        
+    }
+
+}
