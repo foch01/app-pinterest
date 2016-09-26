@@ -1,4 +1,6 @@
-<?php
+<?php /*session_start() ;
+$_SESSION['adresse'] = $_POST['adresse'] ;*/
+
 
 namespace Entity;
 
@@ -21,6 +23,12 @@ class User
         }
         public function setPwd($pwd){
           $this->_pwd = $pwd;
+        }
+
+        public function UrlEntry(){
+          
+          
+          
         }
 
           

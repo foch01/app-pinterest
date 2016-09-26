@@ -115,4 +115,40 @@
         	throw new \Exception("Error, we did not recieve the correct error message");
         }
     }
+
+      /**
+     * @Given je tape l'url :arg1
+     */
+    /*public function jeTapeLUrl($arg1)
+    {
+
+        /*throw new PendingException();*/
+    /*}*/
+
+    /**
+     * @Given je ne suis pas connecté
+     */
+    public function jeNeSuisPasConnecte()
+    {
+    	if(!$this->$connected_user){
+    		echo 'Not Connected !!';
+	   	}
+        /*throw new PendingException();*/
+    }
+
+    /**
+     * @Then j'accède à la page Accueil
+     */
+    public function jAccedeALaPageAccueil()
+    {
+        throw new PendingException();
+    }
+
+    /**
+     * @Then je visualise les :arg1
+     */
+    public function jeVisualiseLes($arg1)
+    {
+        throw new PendingException();
+    }
 } 
