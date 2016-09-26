@@ -1,5 +1,3 @@
-SCENARIO ADMIN PAR PAT :  
- 
 1.0 scenario Admin : étant donné que admin arrive sur site 
  
 1.1 étant donné que admin veut se connecter 
