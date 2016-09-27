@@ -4,7 +4,7 @@
     use Behat\Gherkin\Node\PyStringNode;
     use Behat\Gherkin\Node\TableNode;
     use Behat\Behat\Tester\Exception\PendingException;
-    use Entity\user;
+    use Entity\User;
     /**
     * Defines application features from the specific context.
     */
@@ -12,6 +12,7 @@
     {
     	private $new_user;
     	private $connected_user;
+        private $query_status;
     /**
     * Initializes context.
     *
@@ -29,8 +30,11 @@
     */
     public function jeRentreLesInformationsDansLaFenetre($arg1)
     {
-		if($arg1 == "ajouter un admin"){
-			$this->new_user = new SuperAdmin();
+		if($arg1 == "ajouter un admin" || $arg1 == "supprimer un admin"){
+			$this->new_user = new User();
+            $this->new_user->setPseudo("User_bidon");
+            $this->new_user->setPwd("bonjour");
+            $this->new_user->setMail("user.bidon@test.local");
 		} 
     }
         
@@ -39,7 +43,7 @@
     */
     public function lePseudoEstDejaDansLaBaseDonnee()
     {
-    	$this->new_user->setPseudo("testSuperAdmin");
+    	$this->new_user->setPseudo("testuser");
     }
         
     /**
@@ -51,7 +55,7 @@
         if($user->searchByEmail()){
         	throw new Exception("Found a record but email is erroneous");
         } */
-        $this->new_user->setMail("facesimplon@facesimplon.com");
+        $this->new_user->setMail("reddeveloppement@wanalike.fr");
     }
         
     /**
@@ -59,10 +63,11 @@
     */
     public function jeSuisConnecteEnTantQue($arg1)
     {
-	    $user = new SuperAdmin();
-	    $user->setPseudo("testSuperAdmin");
-	    $user->setPwd("facesimplon");
-	    $connected = $user->connectSuperAdmin();
+        // FIXME : Manage user roles
+	    $user = new User();
+	    $user->setPseudo("testuser");
+	    $user->setPwd("nnnn");
+	    $connected = $user->connect();
 	    if ($connected){
 	        echo "OK";
 	    }
@@ -77,14 +82,7 @@
     */
     public function leVisiteurSeConnecte()
     {
-	 	$user = new SuperAdmin("testSuperAdmin", "facesimplon");
-	    $connected = $user->connectSuperAdmin();
-	    if ($connected){
-	        echo "OK";
-	    }
-	    else {
-	        throw new Exception("Impossible to connect");
-	    }
+	 	//TODO
        }
     
     /**
@@ -104,7 +102,7 @@
      */
     public function jeCreeMonAdmin()
     {
-         $this->new_user->createAdmin();
+         $this->query_status = $this->new_user->create();
     }
         
     /**
@@ -112,8 +110,17 @@
      */
     public function jeDoisVoirLeMessage($arg1)
     {
-        if($_SESSION['error_msg']!=$arg1){
-        	throw new \Exception("Error, we did not recieve the correct error message");
+        switch($arg1){
+            case "Votre ajout a bien été pris en compte":
+            case "Votre suppression a bien été prise en compte":
+                if(!$this->query_status)
+                    throw new Exception("Error lors de la requete SQL");
+                break;
+            case "Cet utilisateur est déjà existant":
+                if($this->query_status)
+                    throw new Exception("Error lors de la requete SQL. L'enregistrement a pu être créé");
+                break;
+                 
         }
     }
         
@@ -131,6 +138,13 @@
     public function leMessageSAffiche($arg1)
     {
         echo "Votre ajout a bien été pris en compte";
+    }
+    /**
+     * @When je supprime mon admin
+     */
+    public function jeSupprimeMonAdmin()
+    {
+        $this->query_status = $this->new_user->delete();
     }
 
 }
