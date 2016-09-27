@@ -4,8 +4,7 @@
     use Behat\Gherkin\Node\PyStringNode;
     use Behat\Gherkin\Node\TableNode;
     use Behat\Behat\Tester\Exception\PendingException;
-    use Entity\User;
-    use Entity\SuperUser;
+    use Entity\user;
     /**
     * Defines application features from the specific context.
     */
@@ -31,7 +30,7 @@
     public function jeRentreLesInformationsDansLaFenetre($arg1)
     {
 		if($arg1 == "ajouter un admin"){
-			$this->new_user = new SuperUser();
+			$this->new_user = new SuperAdmin();
 		} 
     }
         
@@ -40,7 +39,7 @@
     */
     public function lePseudoEstDejaDansLaBaseDonnee()
     {
-    	$this->new_user->setPseudo("testuser");
+    	$this->new_user->setPseudo("testSuperAdmin");
     }
         
     /**
@@ -60,10 +59,10 @@
     */
     public function jeSuisConnecteEnTantQue($arg1)
     {
-	    $user = new SuperUser();
+	    $user = new SuperAdmin();
 	    $user->setPseudo("testSuperAdmin");
 	    $user->setPwd("facesimplon");
-	    $connected = $user->connect();
+	    $connected = $user->connectSuperAdmin();
 	    if ($connected){
 	        echo "OK";
 	    }
@@ -78,8 +77,8 @@
     */
     public function leVisiteurSeConnecte()
     {
-	 	$user = new SuperUser("testSuperAdmin", "facesimplon");
-	    $connected = $user->connect();
+	 	$user = new SuperAdmin("testSuperAdmin", "facesimplon");
+	    $connected = $user->connectSuperAdmin();
 	    if ($connected){
 	        echo "OK";
 	    }
@@ -93,7 +92,7 @@
     */
     public function ilChangeSonMotDePasse()
     {
-    	$user = new SuperUser("testuser", "nnnn", "erroneous@wanalike.fr");
+    	$user = new SuperAdmin("testuser", "nnnn", "erroneous@wanalike.fr");
         if($user->ChangePass()){
         	echo ("Our Password is not Changed");
         }       
@@ -101,11 +100,11 @@
     }
    
     /**
-     * @When je créé mon utilisateur
+     * @When je créé mon admin
      */
-    public function jeCreeMonUtilisateur()
+    public function jeCreeMonAdmin()
     {
-        $this->new_user->create();
+         $this->new_user->createAdmin();
     }
         
     /**
@@ -119,20 +118,19 @@
     }
         
     /**
-     * @When je click sur ajouter un :arg1
+     * @Then je dois pouvoir accéder à la partie ajout admin
      */
-    public function jeClickSurAjouterUn($arg1)
+    public function jeDoisPouvoirAccederALaPartieAjoutAdmin()
     {
-        throw new PendingException();
+        echo "Vous pouvez accéder à la partie d'ajout d'un admin";
     }
 
     /**
-     * @Then je dois voir une fenêtre :arg1
+     * @Then le message :arg1 s'affiche
      */
-    public function jeDoisVoirUneFenetre($arg1)
+    public function leMessageSAffiche($arg1)
     {
-        throw new PendingException();
-        
+        echo "Votre ajout a bien été pris en compte";
     }
 
 }
