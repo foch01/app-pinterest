@@ -139,12 +139,43 @@
     {
         echo "Votre ajout a bien été pris en compte";
     }
+        
     /**
      * @When je supprime mon admin
      */
     public function jeSupprimeMonAdmin()
     {
-        $this->query_status = $this->new_user->delete();
+        //$this->query_status = $this->new_user->delete();
     }
+        
+     /**
+     * @When je change mon password
+     */
+    public function jeChangeMonPassword()
+    {
+        $this->new_user = new User();
+        $this->new_user->setId(54);
+        $this->new_user->setPseudo("User Changed");
+        $this->new_user->setPwd("pouet");
+        $this->new_user->setMail("pouet@pouet.pouet");
+        $this->query_status = $this->new_user->update();
+    }
+
+    /**
+     * @Then je dois voir le message Votre mail a bien été modifié
+     */
+    public function jeDoisVoirLeMessageVotreMailABienEteModifie()
+    {
+        throw new PendingException();
+    }
+
+    /**
+     * @When je change mon mail
+     */
+    public function jeChangeMonMail()
+    {
+        throw new PendingException();
+    }
+
 
 }

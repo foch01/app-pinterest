@@ -6,8 +6,8 @@ class DbSingleton {
 	private static $_instance; //The single instance
 
 	private $_host = "localhost";
-	private $_username = "trainer";
-	private $_password = "facesimplon2016";
+	private $_username = "root";
+	private $_password = "facesimplon";
 	private $_database = "app-pinterest";
 	/*
 	Get an instance of the Database
